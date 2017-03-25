@@ -1,0 +1,153 @@
+﻿Opgave 1:
+Group the following into Big-Oh functions:
+x²,x, x³+ x, x²– x, (x4/ (x – 1))O(N) = xO(N²) = x², x² - xO(N³) = x³ + x, (x4 / (x - 1))------------------------------------------------------------------------------------------------------------Opgave 2An algorithm takes 0.4 ms for input size 100. How long will it take for input size 500 (assuming that
+low-order terms are negligible) if the running time is
+a) Linear
+b) Quadratic
+c) Cubic
+
+a) 2ms 500/100*0.4
+b) 10ms (500/100)²*0.4
+c) 50ms (500/100)³*0.4
+------------------------------------------------------------------------------------------------------------Opgave 3
+An algorithm takes 0.5 ms for input size 100. How large a problem can be solved in 1 minute
+(assuming that low-order terms are negligible) if the running time is
+a) Linear
+b) Quadratic
+c) Cubic
+
+1 min = 60 s = 60000ms
+a) 60.000 / 0,5 * 100 = 12.000.000
+b) \/(60.000 / 0,5) * 100 = 34641,016151377545870548926830117
+c) ³\/(60.000 / 0,5) * 100 = 4932,4241486609402029832226463092
+------------------------------------------------------------------------------------------------------------OPGAVE 4 (5.19)
+In terms of N, what is the running time of the following algorithm to compute XN:
+public static double power(double x, int n)
+{
+ double result = 1.0;
+ for (int i = 0; i < n; i++)
+ result *= x;
+ return result;
+}
+
+O(N)
+------------------------------------------------------------------------------------------------------------OPGAVE 5 (5.26)
+For each of the following program fragments, do the following:
+a) Give a Big-Oh analysis of the running time
+b) Implement the code and run for several values of N
+c) Compare your analysis with the actual running times
+// Fragment 1
+for( int i = 0; i < n; i++ )
+ sum++;
+// Fragment 2
+for( int i = 0; i < n; i += 2 )
+ sum++;
+// Fragment 3
+for( int i = 0; i < n; i++ )
+ for( int j = 0; j < n; j++ )
+ sum++;
+// Fragment 4
+for( int i = 0; i < n; i++ )
+ sum++;
+for( int j = 0; j < n; j++ )
+ sum++;
+// Fragment 5
+for( int i = 0; i < n; i++ )
+ for( int j = 0; j < n * n; j++ )
+ sum++;
+// Fragment 6
+for( int i = 0; i < n; i++ )
+ for( int j = 0; j < i; j++ )
+ sum++;
+// Fragment 7
+for( int i = 0; i < n; i++ )
+ for( int j = 0; j < n * n; j++ )
+ for( int k = 0; k < j; k++ )
+ sum++;
+// Fragment 8
+for( int i = 1; i < n; i = i * 2 )
+ sum++; a) Fragment 1: O(N) Fragment 2: O(N) Fragment 3: O(N²) Fragment 4: O(N) Fragment 5: O(N³) Fragment 6: O(N²) Fragment 7: O(N5) Fragment 8: O(logN)------------------------------------------------------------------------------------------------------------Opgave 6Wat is de tijdscomplexiteit van onderstaande code?
+void main() {
+ sum = 0;
+ for( int i = 0; i < n; i++ )            N
+ for( int j = i; j < n * n; j++ )        N²
+ sum += functie(j);
+}
+int functie(int x) {
+ int iets = 0;
+ for( int k = 0; k < x; k++ )            N
+ iets += functie2(k, x);
+ return iets;
+}
+int functie2(int x, int y) {
+ int iets = 0;
+ for( int k = x; k < y; k = k * 3 )      logN
+iets++;
+ return iets;
+}
+
+O(N5log(N))
+------------------------------------------------------------------------------------------------------------
+OPGAVE 7
+Met behulp van een geschikt programma kunnen eenvoudig grafieken die horen bij wiskundige
+formules worden getekend. Dat kan bijvoorbeeld met Excel, met een tekenprogramma voor
+grafieken zoals Graph (http://www.padowan.dk/graph/) of gebruik http://www.wolframalpha.com.
+a) Teken de grafieken van 𝑁 en 𝑁²
+in één tekening. Doe dit voor
+ 𝑁 = 1,2, … ,10
+ 𝑁 = 1,2, … ,50
+ 𝑁 = 1,2, … 100
+Wat valt je op?
+
+Wat opvalt is, dat voor grotere 𝑁 (N.B. 𝑁 is hier nog maar maximaal 100) de grafiek van 𝑁² al bijna wegvalt
+tegen de grafiek van 𝑁. 
+
+b) Teken de grafiek van log 𝑁 met grondtal 2 in een grafiek, neem 𝑁 = 1,2, … 512. Wat valt op
+aan deze grafiek?
+
+Wat opvalt is dat de lijn steeds vlakker wordt naar mate een grotere N
+
+c) Teken de volgende functies in één grafiek:
+ log 𝑁 met grondtal 2
+ 𝑁
+ 𝑁 log 𝑁
+Neem 𝑁 = 1,2, … ,64.Wat valt op aan de grafieken?
+
+
+d) Teken de volgende functies in één grafiek:
+ 𝑁
+ 𝑁²
+ 𝑁³
+Neem 𝑁 = 1,2, … ,20 Wat valt op voor grotere 𝑁?
+------------------------------------------------------------------------------------------------------------
+OPGAVE 8
+In deze opdracht bekijken we logaritmen. Steeds is het grondtal 2.
+a) Bekijk nog eens de grafiek die je gemaakt hebt in Opdracht 6a. Lees de waarde af van 𝑙𝑜𝑔 4,
+𝑙𝑜𝑔 8, 𝑙𝑜𝑔 16, 𝑙𝑜𝑔 32, 𝑙𝑜𝑔 64, 𝑙𝑜𝑔 128, 𝑙𝑜𝑔 256, 𝑙𝑜𝑔 512.
+b) Wat is de waarde van 𝑙𝑜𝑔 1024? En 𝑙𝑜𝑔 2048?
+c) Als geldt: 𝑙𝑜𝑔 𝑥 = 4, wat is dan de waarde van 𝑥?
+d) Als geldt: 𝑙𝑜𝑔 𝑥 = 10, wat is dan de waarde van 𝑥?a) 2, 3, 4, 5, 6, 7, 8, 9b) 10, 11c) 16d) 1024------------------------------------------------------------------------------------------------------------
+OPGAVE 9
+Volgens de theorie heeft een algoritme een complexiteit 𝑂(𝑁) als de rekentijd gelijk blijkt aan
+bijvoorbeeld 3𝑁 + 10. Een kwadratische complexiteit is daarom voor grote 𝑁 altijd ongunstiger dan
+een lineaire omdat er altijd een 𝑁 gevonden kan worden waarvoor de kwadratische functie groter
+wordt dan de lineaire. We gaan dit voor een drietal gevallen onderzoeken.
+a) Bepaal door berekening of door het tekenen van de grafieken voor welke 𝑥 de grafiek van 𝑥²
+groter wordt dan 10 𝑥. Bepaal ook de 𝑥 waarvoor 𝑥² groter wordt dan 1000 𝑥. Denk je dat
+er een (eindige) waarde 𝛼 te vinden is waarvoor de grafiek van 𝛼 ∙ 𝑥 altijd groter zal blijven
+dan 𝑥²?
+
+b) Bepaal op analoge wijze voor welke 𝑥 de grafiek van 𝑥 groter is dan die van 100 log 𝑥. Wat
+zegt dit over binair zoeken (in een gesorteerde lijst) in vergelijking met lineair zoeken?
+
+c) Bepaal op analoge wijze voor welke 𝑥 de grafiek van 𝑥² groter is dan die van 100 ∙ 𝑥 log 𝑥.
+We zullen in het college over sorteren ontdekken wat het belang is van dit resultaat!a)  De berekening toont dit aan. We zoeken de 𝑥 waarvoor geldt: 𝑥² = 10𝑥. Links en rechts delen door 𝑥 levert
+direct op: 𝑥 = 10. Evenzo vinden we voor 𝑥² = 1000𝑥 als grens 𝑥 = 1000.
+
+Algemeen geldt het volgende. Als 𝑥² = 𝛼 ∙ 𝑥 met 𝑥 ≠ 0, dan volgt daaruit 𝑥 = 𝛼. Voor alle 𝑥 > 𝛼 wint de
+grafiek van 𝑥² het van die van 𝑥. Anders gezegd: voor alle 𝑥 > 𝑎 geldt dat 𝑥² > 𝛼 ∙ 𝑥. Daarom wint voor grote
+𝑥 de kwadratische functie het altijd van de lineaire, met welk getal je die lineaire ook zou vermenigvuldigen.
+Daarom concluderen we terecht dat voor een algoritme met complexiteit 3𝑁 + 10 in Big-Oh notatie O(N) mag
+worden geschrevenb)Uit onderstaande grafiek lezen we af: de lijn van de logaritmische functie snijdt de lijn van de lineaire
+functie voor 𝑥 ≈ 996. Uit het verloop zien we, dat voor grote N de logaritmische gunstiger is dan de lineaire. Dit onderstreept de
+conclusie dat binair zoeken voor grote N gunstiger is dan lineair zoeken. 
