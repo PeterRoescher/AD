@@ -20,8 +20,18 @@ namespace BaseDataStructures
 
         public void Add(T data) //O(1)
         {
-            if (_currentIndex + 1 >= _data.Length) throw new IndexOutOfRangeException("Array is full");
+            if (_currentIndex + 1 >= _data.Length) Doubling();//throw new IndexOutOfRangeException("Array is full");
             _data[++_currentIndex] = data;
+        }
+
+        private void Doubling()
+        {
+            T[] newArray = new T[_data.Length * 2];
+            for (int i = 0; i < _data.Length; i++)
+            {
+                newArray[i] = _data[i];
+            }
+            _data = newArray;
         }
 
         public T Get(int index) //O(1)

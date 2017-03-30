@@ -25,12 +25,23 @@ namespace BaseDataStructures
 
         public void Enqueue(T data)
         {
-            if (_lastPosition +1 >= _internalArray.Length) throw new Exception("Cannot enqueue while the queue is at its end");
+            if (_lastPosition + 1 >= _internalArray.Length) Doubling();//throw new Exception("Cannot enqueue while the queue is at its end");
             _internalArray[++_lastPosition] = data;
+        }
+
+        private void Doubling()
+        {
+            T[] newArray = new T[_internalArray.Length * 2];
+            for (int i = 0; i < _internalArray.Length; i++)
+            {
+                newArray[i] = _internalArray[i];
+            }
+            _internalArray = newArray;
         }
 
         public T Peek()
         {
+            if (_internalArray.Length <= _firstPosition) return default(T);
             return _internalArray[_firstPosition];
         }
 

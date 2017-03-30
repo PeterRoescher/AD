@@ -40,6 +40,8 @@ namespace BaseDataStructures
             _headerNode.NextNode = currentHeaderNode;
             Length++;
         }
+
+
         public void RemoveFirst()
         {
             if (_headerNode == null) throw new Exception("List is empty");
@@ -47,6 +49,21 @@ namespace BaseDataStructures
             _headerNode = _headerNode.NextNode;
             Length--;
         }
+
+        internal void Remove(T data)
+        {
+            if (data.Equals(_headerNode.Data)) RemoveFirst();
+
+            Node<T> node = _headerNode;
+            while (node.NextNode != null && !node.NextNode.Data.Equals(data))
+            {
+                node = node.NextNode;
+            }
+
+            if (node.NextNode == null) throw new ArgumentOutOfRangeException(nameof(data));
+            node.NextNode = node.NextNode.NextNode;
+        }
+
         public T GetFirst()
         {
             if (_headerNode == null) throw new Exception("List is empty");
@@ -125,6 +142,24 @@ namespace BaseDataStructures
             return currentMaxValue;
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (_headerNode == null)
+            {
+                sb.Append("List is empty");
+            }
+            Node<T> node = _headerNode;
+
+            while (node != null)
+            {
+                sb.Append($"{node.Data}");
+                if (node.NextNode != null) sb.Append(" -> ");
+                node = node.NextNode;
+            }
+            sb.AppendLine();
+            return sb.ToString();
+        }
 
         protected class Node<T>
         {

@@ -11,19 +11,6 @@ using BaseDataStructures;
 namespace HeapSort
 {
 
-    public class Tmp : IDisposable
-    {
-        public int Value { get; }
-        public Tmp(int i)
-        {
-            Value = i;
-        }
-
-        public void Dispose()
-        {
-
-        }
-    }
 
     class Program
     {
@@ -32,17 +19,21 @@ namespace HeapSort
             Heap<int> heap = new Heap<int>(4);
             Console.WriteLine($"Height (0): {heap.Height}");
             heap.Add(10);
+            Console.WriteLine($"IsPerfect ({heap.Size}): {heap.IsPerfect}");
             Console.WriteLine($"Height (1): {heap.Height}");
             heap.Add(40);
             heap.Add(80);
-            Console.WriteLine($"Height (2): {heap.Height}");
+            Console.WriteLine($"IsPerfect ({heap.Size}): {heap.IsPerfect}");
+            Console.WriteLine($"Height (3): {heap.Height}");
             heap.Add(30);
             heap.Add(40);
             heap.Add(20);
             heap.Add(41);
-            Console.WriteLine($"Height (3): {heap.Height}");
+            Console.WriteLine($"IsPerfect ({heap.Size}): {heap.IsPerfect}");
+            Console.WriteLine($"Height (7): {heap.Height}");
             heap.Add(45);
-            Console.WriteLine($"Height: {heap.Height}");
+            Console.WriteLine($"IsPerfect ({heap.Size}): {heap.IsPerfect}");
+            Console.WriteLine($"Height (8): {heap.Height}");
             heap.Add(23);
             heap.Add(34);
             heap.Add(47);

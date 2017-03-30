@@ -31,13 +31,28 @@ namespace BaseDataStructures
             }
         }
 
+        public bool IsPerfect
+        {
+            get
+            {
+                double value = Math.Log(Size + 1, 2) - 1.0;
+                return !(value > (int) value);
+            }
+        }
+
         public int Height
         {
             get
             {
-                //perfect
-                return (int)Math.Log(Size + 1, 2);
+                if (Size == 0) return 0;
 
+                double value= Math.Log(Size + 1, 2) - 1.0;
+
+                //inperfect
+                //if (value > (int) value) value++;
+                value = Math.Ceiling(value);
+
+                return (int)value;
 
             }
         }
