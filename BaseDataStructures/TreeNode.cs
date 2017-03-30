@@ -10,6 +10,16 @@ namespace BaseDataStructures
     public class GeneralTree<T>
     {
         public TreeNode<T> Root { get; set; }
+
+        public void PrintPreOrder()
+        {
+            Root.PrintPreOrder();
+        }
+
+        public int GetSize()
+        {
+            return Root.GetSize();
+        }
     }
     public class TreeNode<T>
     {
@@ -18,6 +28,19 @@ namespace BaseDataStructures
 
         public T Data;
 
+        public void PrintPreOrder()
+        {
+            Console.Write(this);
+            FirstChild?.PrintPreOrder();
+            NextSibling?.PrintPreOrder();
+        }
 
+        public int GetSize()
+        {
+            int size = 1;
+            if (FirstChild != null) size += FirstChild.GetSize();
+            if (NextSibling != null) size += NextSibling.GetSize();
+            return size;
+        }
     }
 }

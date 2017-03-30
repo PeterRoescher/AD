@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayList.cs" />
+    <Compile Include="BinaryTree.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="HashTableQuadProbing.cs" />
     <Compile Include="HashTableSepChain.cs" />
